@@ -1,6 +1,10 @@
 import React from "react";
 
-const status = {
+interface StatusInterface {
+    [key: string]: string;
+}
+
+const status: StatusInterface = {
     questStatus: "Idle",
     credits: "$100.00",
     sleepness: "100%",
@@ -12,7 +16,10 @@ function Status() {
     return (
         <div className="status">
             {Object.keys(status).map((arg) => {
-                return <div>{arg} {status[arg]}</div>
+                return <>
+                    <small>{arg}</small>
+                    <p><strong>{status[arg]}</strong></p>
+                </>
             })
             }
         </div>
