@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
+import Options from './components/Options';
+import Status from './components/Status';
 
 function App() {
   return (
     <div className="App">
-      <div className="status">status</div>
+      < Status />
       <div className="quest-info">quest info</div>
-      <div className="options">options</div>
+      < Options />
     </div>
   );
 }
