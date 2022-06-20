@@ -16,10 +16,10 @@ function Status() {
     return (
         <div className="status">
             {Object.keys(status).map((arg) => {
-                return <>
+                return <div key={arg}>
                     <small>{arg}</small>
                     <p><strong>{status[arg]}</strong></p>
-                </>
+                </div>
             })
             }
         </div>
