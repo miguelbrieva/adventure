@@ -1,8 +1,9 @@
 import React from "react";
+import { OptionsInterface } from "../Options"
 
 type Props = {
   children: string,
-  handleOption: (arg0: any) => void 
+  handleOption: (option: OptionsInterface) => void 
 }
 
 const Button: React.FC<Props>  = (props) => {

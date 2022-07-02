@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../Button'
 
-interface OptionsInterface {
+export interface OptionsInterface {
   [key: string]: string;
 }
 
@@ -20,7 +20,7 @@ function Options() {
     <div className="options">
      {/* <Button>Volver</Button> */}
      {Object.keys(options).map((arg) => {
-      return <Button key={arg} handleOption={handleOption}>{options[arg]}</Button>
+      return <div><Button key={arg} handleOption={handleOption}>{options[arg]}</Button></div>
      })
      }
     </div>
