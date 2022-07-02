@@ -12,15 +12,27 @@ const options: OptionsInterface = {
   //explore: "Explore"
 }
 
+
 function Options() {
   function handleOption(event: any) {
-    console.log(event)
+    const chosenOption = event.target.textContent
+
+    switch(chosenOption) {
+      case options.sleep:
+        console.log(chosenOption)
+        break
+      case options.work:
+        console.log(chosenOption)
+        break
+      default:
+        console.log(`Not a valid option`)
+    }
   }
   return (
     <div className="options">
-     {/* <Button>Volver</Button> */}
+     {/* <Button>Back</Button> */}
      {Object.keys(options).map((arg) => {
-      return <div><Button key={arg} handleOption={handleOption}>{options[arg]}</Button></div>
+       return <div key={arg}><Button handleOption={handleOption}>{options[arg]}</Button></div>
      })
      }
     </div>
