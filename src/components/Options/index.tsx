@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { StatusContext } from '../../contexts';
 import Button from '../Button'
 
 export interface OptionsInterface {
@@ -12,29 +13,40 @@ const options: OptionsInterface = {
   //explore: "Explore"
 }
 
-
 function Options() {
-  function handleOption(event: any) {
+  const status = useContext(StatusContext)
+
+  const handleOption = (event: any) => {
     const chosenOption = event.target.textContent
 
-    switch(chosenOption) {
+    switch (chosenOption) {
       case options.sleep:
-        console.log(chosenOption)
-        break
+        if (status.sleepness === 100)
+          break
+        if (typeof status.sleepness === 'number') {
+          status.sleepness += 10
+        }
+          break
       case options.work:
-        console.log(chosenOption)
-        break
+        if (status.sleepness === 0) {
+          console.log("TODO: Can't Work")
+          break
+        }
+        if (typeof status.sleepness === 'number') {
+          status.sleepness -= 10
+        }
+          break
       default:
         console.log(`Not a valid option`)
     }
   }
   return (
     <div className="options">
-     {/* <Button>Back</Button> */}
-     {Object.keys(options).map((arg) => {
-       return <div key={arg}><Button handleOption={handleOption}>{options[arg]}</Button></div>
-     })
-     }
+      {/* <Button>Back</Button> */}
+      {Object.keys(options).map((arg) => {
+        return <div key={arg}><Button handleOption={handleOption}>{options[arg]}</Button></div>
+      })
+      }
     </div>
   );
 }

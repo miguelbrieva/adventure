@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import Options from './components/Options';
 import Status from './components/Status';
