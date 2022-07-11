@@ -1,27 +1,22 @@
-import React, { useContext } from "react";
-import { StatusContext } from "../../contexts";
+import { useStatus } from "../../hooks/useStatus";
 
 function Status() {
-    const status = useContext(StatusContext)
+    const {status} = useStatus()
+
     return (
         <div className="status">
-            {Object.keys(status).map((arg) => {
-                return <div key={arg}>
-                    <div>
-                        <small>{arg}</small>
-                    </div>
-                    <div>
+            {Object.keys(status).map((arg) => (
+                    <div key={arg}>
+                        <small>{arg}: </small>
                         <strong>
                             {status[arg] === status.credits ? '$ ' : ''}
                             {status[arg]}
                             {status[arg] === status.sleepness ? ' %' : ''}
                         </strong>
                     </div>
-                </div>
-            })
-            }
+                ))}
         </div>
-    );
+    )
 }
 
 export default Status;

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { StatusContext } from '../../contexts';
+import { useStatus } from '../../hooks/useStatus';
 import Button from '../Button'
 
 export interface OptionsInterface {
@@ -14,32 +13,35 @@ const options: OptionsInterface = {
 }
 
 function Options() {
-  const status = useContext(StatusContext)
+  const {status, dispatch} = useStatus()
 
   const handleOption = (event: any) => {
     const chosenOption = event.target.textContent
 
     switch (chosenOption) {
       case options.sleep:
-        if (status.sleepness === 100)
+        if (status.sleepness === 100) {
+          console.log("TODO: Can't Sleep")
           break
-        if (typeof status.sleepness === 'number') {
-          status.sleepness += 10
         }
-          break
+        if (typeof status.sleepness === 'number') {
+          dispatch({type: "sleep"})
+        }
+        break
       case options.work:
         if (status.sleepness === 0) {
           console.log("TODO: Can't Work")
           break
         }
         if (typeof status.sleepness === 'number') {
-          status.sleepness -= 10
+          dispatch({type: "work"})
         }
-          break
+        break
       default:
         console.log(`Not a valid option`)
     }
   }
+
   return (
     <div className="options">
       {/* <Button>Back</Button> */}

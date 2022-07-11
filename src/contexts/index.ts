@@ -18,5 +18,3 @@ const status: StatusInterface = {
 }
 
 export const StatusContext = createContext(status)
-
-
