@@ -1,5 +1,6 @@
 import { useStatus } from '../../hooks/useStatus';
 import Button from '../Button'
+import dayjs from 'dayjs'
 
 export interface OptionsInterface {
   [key: string]: string;
@@ -15,6 +16,16 @@ const options: OptionsInterface = {
 function Options() {
   const {status, dispatch} = useStatus()
 
+  const sleep = (state: any) => {
+    return {sleepness: state.sleepness + 10}
+  }
+  const work = (state: any) => {
+    return {sleepness: state.sleepness - 10}
+  }
+  const timePasses = (state: any) => {
+    return {time: state.time.add(1,'hour')}
+  }
+
   const handleOption = (event: any) => {
     const chosenOption = event.target.textContent
 
@@ -25,7 +36,7 @@ function Options() {
           break
         }
         if (typeof status.sleepness === 'number') {
-          dispatch({type: "sleep"})
+          dispatch({type: "sleep", payload: sleep, timePasses})
         }
         break
       case options.work:
@@ -34,7 +45,7 @@ function Options() {
           break
         }
         if (typeof status.sleepness === 'number') {
-          dispatch({type: "work"})
+          dispatch({type: "work", payload: work})
         }
         break
       default:
