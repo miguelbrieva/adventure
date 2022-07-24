@@ -4,10 +4,13 @@ import {StatusContext} from "./StatusContext"
 import {statusReducer} from './StatusReducer'
 import dayjs from 'dayjs'
 
-const time = dayjs("sun, 12 june, 2042") 
+const INITIAL_TIME = dayjs("sun, 12 june, 2042") 
 
-const date = dayjs(time).format('ddd, D MMMM, YYYY')
+const date = dayjs(INITIAL_TIME)
 const hour = dayjs(date).format('hh:mm A')
+
+
+console.log(dayjs(date).add(1, 'hour').format('ddd, D MMMM, YYYY, h:mm A'))
 
 export const INITIAL_STATE: StatusState = {
   questStatus: "Idle",
