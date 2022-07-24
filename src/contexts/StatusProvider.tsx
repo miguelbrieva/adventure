@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 
 const INITIAL_TIME = dayjs("sun, 12 june, 2042") 
 
-const date = dayjs(INITIAL_TIME)
+const date = dayjs(INITIAL_TIME).format('ddd, D MMMM, YYYY')
 const hour = dayjs(date).format('hh:mm A')
 
 
