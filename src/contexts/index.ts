@@ -12,7 +12,7 @@ function convertToDecimal(num: number) {
 const status: StatusInterface = {
   questStatus: "Idle",
   credits: convertToDecimal(10000),
-  sleepness: 100,
+  stamina: 100,
   location: "Valparadise",
   time: "sun, 12 june"
 }

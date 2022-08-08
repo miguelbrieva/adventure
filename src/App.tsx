@@ -1,6 +1,7 @@
 import './App.css';
 import Options from './components/Options';
 import Status from './components/Status';
+import QuestInfo from './components/QuestInfo';
 import { StatusProvider } from './contexts/StatusProvider';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <div className="App">
       <StatusProvider>
         < Status />
-        <div className="quest-info">quest info</div>
+        < QuestInfo />
         < Options />
       </StatusProvider>
     </div>

@@ -17,13 +17,16 @@ function Options() {
   const {status, dispatch} = useStatus()
 
   const sleep = (state: any) => {
-    return {sleepness: state.sleepness + 10}
+    return {
+      stamina: state.stamina + 10,
+      time: dayjs(state.time).add(1,'hour'),
+    }
   }
   const work = (state: any) => {
-    return {sleepness: state.sleepness - 10}
-  }
-  const timePasses = (state: any) => {
-    return {time: state.time.add(1,'hour')}
+    return {
+      stamina: state.stamina - 10,
+      time: dayjs(state.time).add(1,'hour'),
+    }
   }
 
   const handleOption = (event: any) => {
@@ -31,20 +34,20 @@ function Options() {
 
     switch (chosenOption) {
       case options.sleep:
-        if (status.sleepness === 100) {
+        if (status.stamina === 100) {
           console.log("TODO: Can't Sleep")
           break
         }
-        if (typeof status.sleepness === 'number') {
-          dispatch({type: "sleep", payload: sleep, timePasses})
+        if (typeof status.stamina === 'number') {
+          dispatch({type: "sleep", payload: sleep})
         }
         break
       case options.work:
-        if (status.sleepness === 0) {
+        if (status.stamina === 0) {
           console.log("TODO: Can't Work")
           break
         }
-        if (typeof status.sleepness === 'number') {
+        if (typeof status.stamina === 'number') {
           dispatch({type: "work", payload: work})
         }
         break
