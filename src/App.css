@@ -1,18 +1,12 @@
 .App {
+  position: relative;
   box-sizing: border-box;
   display: grid;
   gap: 1rem;
   grid-template-columns: 250px 1fr;
   grid-template-rows: auto 250px;
   padding: 1rem;
-  background-color: darkgray;
   min-height: 100vh;
-}
-
-.App div {
-  background-color: aliceblue;
-  border-radius: 1rem;
-  padding: 1rem;
 }
 
 .status {

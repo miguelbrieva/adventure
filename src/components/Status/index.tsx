@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { useStatus } from "../../hooks/useStatus";
 import { convertToDecimal } from "../../utils";
+import './style.css'
 
 function Status() {
     const {status} = useStatus()

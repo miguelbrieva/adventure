@@ -1,8 +1,9 @@
 import React from 'react'
+import './style.css'
 
 const QuestInfo = () => {
   return (
-    <div>
+    <div className="questinfo">
       Intro
     </div>
   )

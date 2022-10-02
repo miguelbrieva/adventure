@@ -1,0 +1,23 @@
+.shortcut-list {
+  position: absolute;
+  right:0;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.shortcut-list-arrow {
+  background-color: aquamarine;
+  border: 1px solid blue;
+  padding: 10px;
+  height: 20px;
+}
+
+.shortcut-list-icons {
+  border: 1px solid green;
+	padding: 5px;
+}
+.shortcut-list-icon {
+  display: block;
+  font-size: 50px;
+}
